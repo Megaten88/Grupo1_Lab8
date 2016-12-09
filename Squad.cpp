@@ -32,7 +32,7 @@ int Squad::getTotalAttack(){
 	{
 		for (int i = 0; i < squad.size(); ++i)
 		{
-			totalDef+= squad.at(i)-> efficiencyAttack();();
+			totalDef+= squad.at(i)-> efficiencyAttack();
 		}
 		return totalAttack;
 	}else{
