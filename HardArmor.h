@@ -17,8 +17,8 @@ public:
 	HardArmor();
 	~HardArmor();
 	
-	int efficiencyAttack();
-    int efficiencyDefense();
+	double efficiencyAttack();
+    double efficiencyDefense();
 
 
     string toString();

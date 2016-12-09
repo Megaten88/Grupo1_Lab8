@@ -38,12 +38,12 @@ string Soldier::getCity(){
     return this->city;
 }
 
-int Soldier::efficiencyAttack(){
-    return 0;
+double Soldier::efficiencyAttack(){
+    return 5;
 }
 
-int Soldier::efficiencyDefense(){
-    return 0;
+double Soldier::efficiencyDefense(){
+    return 5;
 }
 
 string Soldier::toString(){

@@ -24,8 +24,8 @@ public:
     void setCity(string);
     string getCity();
 
-    virtual int efficiencyAttack();
-    virtual int efficiencyDefense();
+    virtual double efficiencyAttack();
+    virtual double efficiencyDefense();
 
     virtual string toString();
 };

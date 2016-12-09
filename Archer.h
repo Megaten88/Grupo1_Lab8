@@ -21,8 +21,8 @@ public:
 	int getPresicion();
 	void setPresicion(int);
 
-	int efficiencyAttack();
-    int efficiencyDefense();
+	double efficiencyAttack();
+    double efficiencyDefense();
 
 	Archer();
 	Archer(string,int,string, int, int);

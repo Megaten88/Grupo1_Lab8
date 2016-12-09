@@ -23,22 +23,22 @@ int main(int argc, char const *argv[]){
 	int option = 0 ;
 
 			while (option != 3) {
-				std::cout << "SIMULACIÓN : Guerras Punicas" << '\n';
-				std::cout << "1) Agregar escuadrón" << '\n';
-				std::cout << "2) Agregar soldado a escuadron" << '\n';
-				std::cout << "3) Salir " << '\n';
+				cout << "SIMULACIÓN : Guerras Punicas" << '\n';
+				cout << "1) Agregar escuadrón" << '\n';
+				cout << "2) Agregar soldado a escuadron" << '\n';
+				cout << "3) Salir " << '\n';
 
 				cin>>option;
 
 				string nombre;
-				string edad;
+				int edad;
 				string ciudad;
 
 				if (option == 1) {
-					std::cout << "Ingrese el nombre de su escuadron: " << '\n';
+					cout << "Ingrese el nombre de su escuadron: " << '\n';
 					cin>> nombre;
-					escuadrones.push_back(new escuadron(nombre));
-					std::cout << "Su escuadron ha sido agregado exitosamente" << '\n';
+					escuadrones.push_back(new Squad(nombre));
+					cout << "Su escuadron ha sido agregado exitosamente" << '\n';
 				}
 
 				if (option == 2){
@@ -47,39 +47,42 @@ int main(int argc, char const *argv[]){
 					int repeat=0;
 
 					if (escuadrones.size()> 0) {
-						std::cout << "Seleccione su escuadron: " << '\n';
+						cout << "Seleccione su escuadron: " << '\n';
 
-							for (size_t i = 0; i < count; i++) {
-								std::cout << i <<" : " << escuadrones.at(i)->toString() << '\n';
+							for (size_t i = 0; i < escuadrones.size(); i++) {
+								cout << i <<" : " << escuadrones.at(i)->toString() << '\n';
 							}
 
 						 cin>>selectSquad;
 
-						 std::cout << "¿Qué desea agregar a su escuadron?" << '\n';
-						 std::cout << "1) Arquero " << '\n';
-						 std::cout << "2) Coraza Dura" << '\n';
-						 std::cout << "3) Asesino Oculto " << '\n';
+						 cout << "¿Qué desea agregar a su escuadron?" << '\n';
+						 cout << "1) Arquero " << '\n';
+						 cout << "2) Coraza Dura" << '\n';
+						 cout << "3) Asesino Oculto " << '\n';
 
 						 cin >> select;
 
 						 if (select == 1 ) {
 							 	int flechas=0;
 							 	int presicion=0;
-							 	std::cout << "¿Cuantos arqueros desea agregar?" << '\n';
+							 	cout << "¿Cuantos arqueros desea agregar?" << '\n';
 								cin>>repeat;
 
 								while (repeat > 0 ) {
-									std::cout << "Ingrese el nombre: " << '\n';
+									cout << "Ingrese el nombre: " << '\n';
 									cin>> nombre;
-									std::cout << "Ingrese la edad:" << '\n';
+									cout << "Ingrese la edad:" << '\n';
 									cin>> edad;
-									std::cout << "Ingrese el nombre de la ciudad de origen" << '\n';
+									cout << "Ingrese el nombre de la ciudad de origen" << '\n';
 									cin>> ciudad;
-									std::cout << "Cantidad de flechas: " << '\n';
+									cout << "Cantidad de flechas: " << '\n';
 									cin>> flechas;
-									std::cout << "Rango de presicion; " << '\n';
+									cout << "Rango de presicion; " << '\n';
 									cin>> presicion;
-									escuadrones.at(selectSquad)->addSoldier(new Arquero(nombre,edad,ciudad,flechas,presicion));
+									Archer* temp = new Archer(nombre,edad,ciudad,flechas,presicion);
+									cout<< temp->efficiencyAttack();
+									cout<<"FIn"<<endl;
+									escuadrones.at(selectSquad)->addSoldier(new Archer(nombre,edad,ciudad,flechas,presicion));
 
 									repeat--;
 								}
@@ -90,20 +93,20 @@ int main(int argc, char const *argv[]){
 							 int dureza=0;
 							 int lanzas=0;
 
-							 std::cout << "¿Cuantos Coraza dura desea agregar?" << '\n';
+							 cout << "¿Cuantos Coraza dura desea agregar?" << '\n';
 							 cin>>repeat;
 
 							 while (repeat > 0 ) {
-								 std::cout << "Ingrese el nombre: " << '\n';
+								 cout << "Ingrese el nombre: " << '\n';
 								 cin>> nombre;
-								 std::cout << "Ingrese la edad:" << '\n';
+								 cout << "Ingrese la edad:" << '\n';
 								 cin>> edad;
-								 std::cout << "Ingrese el nombre de la ciudad de origen" << '\n';
+								 cout << "Ingrese el nombre de la ciudad de origen" << '\n';
 								 cin>> ciudad;
 
-								 std::cout << "Nivel de dureza: " << '\n';
+								 cout << "Nivel de dureza: " << '\n';
 								 cin>> dureza;
-								 std::cout << "numero de lanzas; " << '\n';
+								 cout << "numero de lanzas; " << '\n';
 								 cin>> lanzas;
 
 								 escuadrones.at(selectSquad)->addSoldier(new HardArmor(nombre,edad,ciudad,dureza,lanzas));
@@ -116,26 +119,26 @@ int main(int argc, char const *argv[]){
 						 if (select == 3 ) {
 							 int victimas=0;
 							 int presencia=0;
-							 std::cout << "¿Cuantos Asesinos Ocultos desea agregar?" << '\n';
+							 cout << "¿Cuantos Asesinos Ocultos desea agregar?" << '\n';
 							 cin>>repeat;
 
 							 while (repeat > 0 ) {
-								 std::cout << "Ingrese el nombre: " << '\n';
+								 cout << "Ingrese el nombre: " << '\n';
 								 cin>> nombre;
-								 std::cout << "Ingrese la edad:" << '\n';
+								 cout << "Ingrese la edad:" << '\n';
 								 cin>> edad;
-								 std::cout << "Ingrese el nombre de la ciudad de origen" << '\n';
+								 cout << "Ingrese el nombre de la ciudad de origen" << '\n';
 								 cin>> ciudad;
-								 std::cout << "Numero de nictimas: " << '\n';
+								 cout << "Numero de nictimas: " << '\n';
 								 cin>> victimas;
-								 std::cout << "Nivel de presencia; " << '\n';
+								 cout << "Nivel de presencia; " << '\n';
 								 cin>> presencia;
-								 escuadrones.at(selectSquad)->addSoldier(new Assasin(nombre,edad,ciudad,victimas,presencia));
+								 escuadrones.at(selectSquad)->addSoldier(new Assassin(nombre,edad,ciudad,victimas,presencia));
 								 repeat--;
 							 }
 						 }
 					}else{
-						std::cout << "Almenos ocupa un escuadron al cual agregar soldados." << '\n';
+						cout << "Almenos ocupa un escuadron al cual agregar soldados." << '\n';
 					}
 
 
@@ -147,7 +150,10 @@ int main(int argc, char const *argv[]){
 
 			}
 
-
+		for (int i = 0; i < escuadrones.size(); ++i){
+	    	escuadrones.erase(escuadrones.begin() + i);
+		}
+    	escuadrones.clear();
 
 	return 0;
 }

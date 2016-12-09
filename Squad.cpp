@@ -6,14 +6,14 @@ using std::string;
 using std::stringstream;
 
 Squad::Squad(string nombre){
-	name = name;
+	name = nombre;
 	totalDef = 0;
 	totalAttack = 0;
 }
 void Squad::addSoldier(Soldier* soldier){
 	squad.push_back(soldier);
 }
-int Squad::getTotalDef(){
+double Squad::getTotalDef(){
 	totalDef = 0;
 	if (squad.size()>0)
 	{
@@ -26,14 +26,15 @@ int Squad::getTotalDef(){
 		return 0;
 	}
 }
-int Squad::getTotalAttack(){
+double Squad::getTotalAttack(){
 	totalAttack = 0;
 	if (squad.size()>0)
 	{
 		for (int i = 0; i < squad.size(); ++i)
 		{
-			totalDef+= squad.at(i)-> efficiencyAttack();
+			totalAttack+= squad.at(i)-> efficiencyAttack();
 		}
+		cout<<"ewe"<<endl;
 		return totalAttack;
 	}else{
 		return 0;
@@ -47,14 +48,14 @@ Squad::~Squad(){
 }
 string Squad::toString(){
 	stringstream ss;
-	ss<<"Nombre del esquadrón: "<<name<<"\n------Soldados-------";
+	ss<<"Nombre del esquadrón: "<<name<<"\n------Soldados-------\n";
 	if (squad.size() > 0)
 	{
 		for (int i = 0; i < squad.size(); ++i)
 		{
-			ss<<squad.at(i)-> getName()<<"\n";
+			ss<<i<<") "<<squad.at(i)-> getName()<<"\n";
 		}
 	}
-	ss<<"Ataque total: "<<totalAttack<<"\tDefensa total: "<<totalDef<<"\n";
+	ss<<"\nAtaque total: "<<getTotalAttack()<<"\tDefensa total: "<<getTotalDef()<<"\n";
 	return ss.str();
 }

@@ -10,16 +10,16 @@ class Squad
 private:
 	string name;
 	vector<Soldier*> squad;
-	int totalDef;
-	int totalAttack;
+	double totalDef;
+	double totalAttack;
 public:
 	Squad(string);
 	void setName(string);
 	string getName();
 	string getSoldiers();
 	void addSoldier(Soldier*);
-	int getTotalDef();
-	int getTotalAttack();
+	double getTotalDef();
+	double getTotalAttack();
 	~Squad();
 	string toString();
 };

@@ -1,5 +1,5 @@
 #include "Archer.h"
-
+#include "Soldier.h"
 Archer::Archer(){
 
 }
@@ -31,12 +31,12 @@ Archer::~Archer(){
 
 }
 
-int Archer::efficiencyAttack(){
-	return this->arrows * (this->presicion/1000);
+double Archer::efficiencyAttack(){
+	return (this->arrows * (this->presicion/1000));
 
 }
 
-int Archer::efficiencyDefense(){
+double Archer::efficiencyDefense(){
 	return 0;
 }
 
