@@ -14,10 +14,30 @@ void Squad::addSoldier(Soldier* soldier){
 	squad.push_back(soldier);
 }
 int Squad::getTotalDef(){
-	return totalDef;
+	totalDef = 0;
+	if (squad.size()>0)
+	{
+		for (int i = 0; i < squad.size(); ++i)
+		{
+			totalDef+= squad.at(i)-> efficiencyDefense();
+		}
+		return totalDef;
+	}else{
+		return 0;
+	}
 }
 int Squad::getTotalAttack(){
-	return totalAttack;
+	totalAttack = 0;
+	if (squad.size()>0)
+	{
+		for (int i = 0; i < squad.size(); ++i)
+		{
+			totalDef+= squad.at(i)-> efficiencyAttack();();
+		}
+		return totalAttack;
+	}else{
+		return 0;
+	}
 }
 Squad::~Squad(){
 	for (int i = 0; i < squad.size(); ++i){
