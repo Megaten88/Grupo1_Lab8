@@ -4,12 +4,10 @@ Archer::Archer(){
 
 }
 
-Archer::Archer(string nombre, int edad, string ciudad, int arrows, double presicion){
-	this->name = nombre;
-    this->age = edad;
-    this->city = ciudad;
-    this->arrows = arrows;
-    this->presicion = presicion;
+Archer::Archer(string nombre, int edad, string ciudad, int arrows, double presicion): Soldier (nombre, edad, ciudad ) {
+
+	this->arrows = arrows;
+	this->presicion = presicion;
 }
 
 
