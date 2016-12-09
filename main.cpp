@@ -1,4 +1,5 @@
 #include "Soldier.h"
+#include "Squad.h"
 #include <ncurses.h>
 
 int main(int argc, char const *argv[])
