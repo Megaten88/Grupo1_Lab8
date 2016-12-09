@@ -24,12 +24,12 @@ HardArmor::~HardArmor(){
 
 }
 
-double HardArmor::efficiencyAttack(){
+int HardArmor::efficiencyAttack(){
 	return this->lances;
 }
 
 
-double HardArmor::efficiencyDefense(){
+int HardArmor::efficiencyDefense(){
 	return this->hardness;
 }
 
