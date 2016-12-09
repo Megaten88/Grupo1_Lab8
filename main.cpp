@@ -14,11 +14,12 @@ int main(int argc, char const *argv[]){
 	start_color();
 	int option = 0 ;
 			char temp[1];
-			while (option != 3) {
+			while (option != 4) {
 				addstr("SIMULACIÓN : Guerras Punicas\n");
 				addstr("1) Agregar escuadrón\n");
 				addstr("2) Agregar soldado a escuadron\n");
-				addstr("3) Salir \n");
+				addstr("3) Inicar simulacion\n");
+				addstr("4) Salir \n");
 				getstr(temp);
 				option = temp[0];
 				char nombre[25];
@@ -33,7 +34,9 @@ int main(int argc, char const *argv[]){
 				}
 
 				if (option == 2){
-					int selectSquad=0;
+					int selectSquad=0;for (size_t i = 0; i < escuadrones.size(); i++) {
+							cout << i <<" : " << escuadrones.at(i)->toString() << '\n';
+						}
 					int select=0;
 					int repeat=0;
 
@@ -130,6 +133,47 @@ int main(int argc, char const *argv[]){
 						addstr("Almenos ocupa un escuadron al cual agregar soldados.\n");
 					}
 				}
+
+				if (option == 3) {
+					if (escuadrones.size() > 3) {
+
+						vector<Squad*> bando1;
+						vector<Squad*> bando2;
+
+						int select1= 0;
+						int select2= 0;
+
+						addstr("Se tienen 2 bandos,ambos con un escuadron al frente y otro en la retaguardia\n");
+
+						stringstream ss;
+						for (size_t i = 0; i < escuadrones.size(); i++) {
+							ss<<i <<" : " << escuadrones.at(i)->toString() << "\n";
+						}
+						string menu = ss.str();
+						addstr(menu.c_str());
+
+						addstr("Bando 1: Seleccione el escuadron frontal:");
+						scanw("%d",&select1);
+						addstr("Bando 1: Seleccione el escuadron de retaguardia:");
+						scanw("%d",&select2);
+
+						bando1.push_back(escuadrones.at(select1));
+						bando1.push_back(escuadrones.at(select2));
+
+
+						addstr(menu.c_str());
+						addstr("Bando 2: Seleccione el escuadron frontal:");
+						scanw("%d",&select1);
+						addstr("Bando 2: Seleccione el escuadron de retaguardia:");
+						scanw("%d",&select2);
+
+						bando2.push_back(escuadrones.at(select1));
+						bando2.push_back(escuadrones.at(select2));
+
+						}else{
+							addstr("Ocupa almenos 4 escuadrones para poder iniciar la simulación.");
+						}
+					}
 
 			}
 		refresh();
