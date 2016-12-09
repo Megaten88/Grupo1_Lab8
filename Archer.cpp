@@ -4,7 +4,7 @@ Archer::Archer(){
 
 }
 
-Archer::Archer(string nombre, int edad, string ciudad, int arrows, double presicion): Soldier (nombre, edad, ciudad ) {
+Archer::Archer(string nombre, int edad, string ciudad, int arrows, int presicion): Soldier (nombre, edad, ciudad ) {
 
 	this->arrows = arrows;
 	this->presicion = presicion;
@@ -19,11 +19,11 @@ void Archer::setArrows(int arrows){
 	this->arrows = arrows;
 }
 
-double Archer::getPresicion(){
+int Archer::getPresicion(){
 	return presicion;
 }
 
-void Archer::setPresicion(double presicion){
+void Archer::setPresicion(int presicion){
 	this->presicion=presicion;
 }
 
@@ -31,12 +31,12 @@ Archer::~Archer(){
 
 }
 
-double Archer::efficiencyAttack(){
+int Archer::efficiencyAttack(){
 	return this->arrows * (this->presicion/1000);
 
 }
 
-double Archer::efficiencyDefense(){
+int Archer::efficiencyDefense(){
 	return 0;
 }
 

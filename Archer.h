@@ -11,21 +11,21 @@ class Archer : public Soldier
 {
 private:
 	int arrows;
-	double presicion;
+	int presicion;
 
 public:
 
 
 	int getArrows();
-	void setArrows(double);
-	double getPresicion();
-	void setPresicion(double);
+	void setArrows(int);
+	int getPresicion();
+	void setPresicion(int);
 
-	double efficiencyAttack();
-    double efficiencyDefense();
+	int efficiencyAttack();
+    int efficiencyDefense();
 
 	Archer();
-	Archer(string,int,string, int, double);
+	Archer(string,int,string, int, int);
 	~Archer();
 	string toString();
 };

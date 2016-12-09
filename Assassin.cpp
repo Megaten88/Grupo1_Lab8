@@ -25,12 +25,12 @@ void Assassin::setPresence(int presence){
 	this->presence = presence;
 }
 
-double Assassin::efficiencyAttack(){
+int Assassin::efficiencyAttack(){
 	return kills;
 
 }
 
-double Assassin::efficiencyDefense(){
+int Assassin::efficiencyDefense(){
 	return presence * 10;
 }
 

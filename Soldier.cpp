@@ -49,5 +49,5 @@ int Soldier::efficiencyDefense(){
 string Soldier::toString(){
     stringstream ss;
     ss<< "Nombre: " << name <<endl << "Edad: "<< age << endl << "Ciudad: " << city<<endl;
-    return ss;
+    return ss.str();
 };

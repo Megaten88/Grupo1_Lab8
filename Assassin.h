@@ -16,9 +16,9 @@ public:
 	Assassin();
 	~Assassin();
 
-	double efficiencyAttack();
-    double efficiencyDefense();
-    
+	int efficiencyAttack();
+    int efficiencyDefense();
+
 	string toString();
 	
 };
