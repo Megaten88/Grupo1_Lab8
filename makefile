@@ -17,6 +17,6 @@ Assassin.o: Soldier.h Assassin.h Assassin.cpp
 	g++ -c Assassin.cpp
 
 HardArmor.o: Soldier.h HardArmor.h HardArmor.cpp
-	g++ -c Assassin.cpp
+	g++ -c HardArmor.cpp
 clean:
 	rm -f *.o main
