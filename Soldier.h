@@ -6,7 +6,7 @@
 using namespace std;
 
 class Soldier{
-private:
+protected:
     string name;
     int age;
     string city;
