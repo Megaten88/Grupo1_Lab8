@@ -5,7 +5,6 @@ Assassin::Assassin(){
 }
 
 Assassin::Assassin(string nombre, int edad, string ciudad, int kills, int presence) : Soldier (nombre, edad, ciudad ){
-
 	this->kills = kills;
 	this->presence = presence;
 }

@@ -34,5 +34,9 @@ double HardArmor::efficiencyDefense(){
 }
 
 string HardArmor::toString(){
+	stringstream ss;
+	ss<< "Nombre: " << name <<endl << "Edad: "<< age << endl << "Ciudad: " << city<<endl;
+	ss<< "Dureza: "<< hardness << endl << "Cantidad de lanzas: " << lances << endl;
+	return ss.str();
 
 }

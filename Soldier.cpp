@@ -47,6 +47,7 @@ int Soldier::efficiencyDefense(){
 }
 
 string Soldier::toString(){
-
-    return "spoof";
+    stringstream ss;
+    ss<< "Nombre: " << name <<endl << "Edad: "<< age << endl << "Ciudad: " << city<<endl;
+    return ss;
 };
