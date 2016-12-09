@@ -38,8 +38,14 @@ double Assassin::efficiencyDefense(){
 }
 
 string Assassin::toString(){
+	stringstream ss;
+	ss<< "Nombre: " << name <<endl << "Edad: "<< age << endl << "Ciudad: " << city<<endl;
+	ss<< "Cantidad de Asesinatos: " << kills << endl << "Capacidad de pasar desapercibido: " << presence << endl;
 	
+	return ss.str();
 }
+
+
 Assassin::~Assassin(){
-	
+
 }

@@ -43,5 +43,8 @@ double Archer::efficiencyDefense(){
 }
 
 string Archer::toString(){
-
+	stringstream ss;
+	ss<< "Nombre: " << name <<endl << "Edad: "<< age << endl << "Ciudad: " << city<<endl;
+	ss<<"Cantidad de Flechas: "<<this->arrows<<endl<<"Presicion: "<< this->presicion << endl;
+	return ss.str();
 }
