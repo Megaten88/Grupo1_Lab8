@@ -32,7 +32,9 @@ Archer::~Archer(){
 }
 
 double Archer::efficiencyAttack(){
-	return (this->arrows * (this->presicion/1000));
+	double multiplicacion = presicion*arrows;
+	multiplicacion = multiplicacion / 1000;
+	return multiplicacion;
 
 }
 
