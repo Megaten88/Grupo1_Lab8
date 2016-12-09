@@ -16,20 +16,24 @@ int main(int argc, char const *argv[]){
 			char temp[1];
 			while (option != 3) {
 				addstr("SIMULACIÓN : Guerras Punicas\n");
+				refresh();
 				addstr("1) Agregar escuadrón\n");
+				refresh();
 				addstr("2) Agregar soldado a escuadron\n");
+				refresh();
 				addstr("3) Salir \n");
-				getstr(temp);
-				option = temp[0];
+				refresh();
+				scanw("%d",&option);
 				char nombre[25];
 				int edad;
 				char ciudad[25];
-
 				if (option == 1) {
 					addstr("Ingrese el nombre de su escuadron: \n");
+					refresh();
 					getstr(nombre);
 					escuadrones.push_back(new Squad(nombre));
 					addstr("Su escuadron ha sido agregado exitosamente\n");
+					refresh();
 				}
 
 				if (option == 2){
@@ -39,38 +43,50 @@ int main(int argc, char const *argv[]){
 
 					if (escuadrones.size()> 0) {
 						addstr("Seleccione su escuadron: \n");
+						refresh();
 							stringstream ss;
 							for (size_t i = 0; i < escuadrones.size(); i++) {
 								ss<<i <<" : " << escuadrones.at(i)->toString() << "\n";
 							}
 							string menu = ss.str();
 							addstr(menu.c_str());
-						 selectSquad= getstr(temp);
+							refresh();
+						 scanw("%d",&selectSquad);
 
 						 addstr("¿Qué desea agregar a su escuadron?\n");
+						 refresh();
 						 addstr("1) Arquero \n");
+						 refresh();
 						 addstr("2) Coraza Dura\n");
+						 refresh();
 						 addstr("3) Asesino Oculto \n");
+						 refresh();
 
-						 select = getstr(temp);
+						 scanw("%d",&select);
 
 						 if (select == 1 ) {
 							 	int flechas=0;
 							 	int presicion=0;
 							 	addstr("¿Cuantos arqueros desea agregar?\n");
-								repeat=getstr(temp);
+							 	refresh();
+								scanw("%d",&repeat);
 
 								while (repeat > 0 ) {
 									addstr("Ingrese el nombre: \n");
+									refresh();
 									getstr(nombre);
 									addstr("Ingrese la edad:\n");
-									edad=getstr(temp);
+									refresh();
+									scanw("%d",&edad);
 									addstr("Ingrese el nombre de la ciudad de origen\n");
+									refresh();
 									getstr(ciudad);
 									addstr("Cantidad de flechas: \n");
-									flechas=getstr(temp);
+									refresh();
+									scanw("%d",&flechas);
 									addstr("Rango de presicion; \n");
-									presicion = getstr(temp);
+									refresh();
+									scanw("%d",&presicion);
 									escuadrones.at(selectSquad)->addSoldier(new Archer(nombre,edad,ciudad,flechas,presicion));
 
 									repeat--;
@@ -83,20 +99,24 @@ int main(int argc, char const *argv[]){
 							 int lanzas=0;
 
 							 addstr("¿Cuantos Coraza dura desea agregar?\n");
-							 repeat=getstr(temp);
-
+							 refresh();
+							 scanw("%d",&repeat);
 							 while (repeat > 0 ) {
 								 addstr("Ingrese el nombre: \n");
+								 refresh();
 								 getstr(nombre);
 								 addstr("Ingrese la edad:\n");
-								 edad=getstr(temp);
+								 refresh();
+								 scanw("%d",&edad);
 								 addstr("Ingrese el nombre de la ciudad de origen\n");
+								 refresh();
 								 getstr(ciudad);
-
 								 addstr("Nivel de dureza: \n");
-								 dureza=getstr(temp);
+								 refresh();
+								 scanw("%d",&dureza);;
 								 addstr("Numero de lanzas: \n");
-								 lanzas=getstr(temp);
+								 refresh();
+								 scanw("%d",&lanzas);
 
 								 escuadrones.at(selectSquad)->addSoldier(new HardArmor(nombre,edad,ciudad,dureza,lanzas));
 
@@ -109,19 +129,24 @@ int main(int argc, char const *argv[]){
 							 int victimas=0;
 							 int presencia=0;
 							 addstr("¿Cuantos Asesinos Ocultos desea agregar?\n");
-							 repeat=getstr(temp);
-
+							 refresh();
+							 scanw("%d", &repeat);
 							 while (repeat > 0 ) {
 								 addstr("Ingrese el nombre: \n");
-								 getstr( nombre);
+								 refresh();
+								 getstr(nombre);
 								 addstr("Ingrese la edad:\n");
-								 edad=getstr(temp);
+								 refresh();
+								 scanw("%d",&edad);
 								 addstr("Ingrese el nombre de la ciudad de origen\n");
+								 refresh();
 								 getstr( ciudad);
 								 addstr("Numero de nictimas: \n");
-								 victimas=getstr(temp);
+								 refresh();
+								 scanw("%d",&victimas);
 								 addstr("Nivel de presencia; \n");
-								 presencia=getstr(temp);
+								 refresh();
+								 scanw("%d",&presencia);;
 								 escuadrones.at(selectSquad)->addSoldier(new Assassin(nombre,edad,ciudad,victimas,presencia));
 								 repeat--;
 							 }
