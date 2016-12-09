@@ -31,7 +31,8 @@ double Assassin::efficiencyAttack(){
 }
 
 double Assassin::efficiencyDefense(){
-	return presence * 10;
+	double efficiency = presence * 10;
+	return efficiency;
 }
 
 string Assassin::toString(){

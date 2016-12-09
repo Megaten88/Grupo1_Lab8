@@ -80,8 +80,6 @@ int main(int argc, char const *argv[]){
 									cout << "Rango de presicion; " << '\n';
 									cin>> presicion;
 									Archer* temp = new Archer(nombre,edad,ciudad,flechas,presicion);
-									cout<< temp->efficiencyAttack();
-									cout<<"FIn"<<endl;
 									escuadrones.at(selectSquad)->addSoldier(new Archer(nombre,edad,ciudad,flechas,presicion));
 
 									repeat--;
@@ -129,7 +127,7 @@ int main(int argc, char const *argv[]){
 								 cin>> edad;
 								 cout << "Ingrese el nombre de la ciudad de origen" << '\n';
 								 cin>> ciudad;
-								 cout << "Numero de nictimas: " << '\n';
+								 cout << "Numero de victimas: " << '\n';
 								 cin>> victimas;
 								 cout << "Nivel de presencia; " << '\n';
 								 cin>> presencia;
