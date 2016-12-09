@@ -1,13 +1,9 @@
 #include "HardArmor.h"
 
-HardArmor::HardArmor(string nombre, int edad, string ciudad,int hardness, int lances){
-	this->nombre = nombre;
-	this-> edad = edad;
-	this-> ciudad = ciudad;
-	this-> hardness = hardness;
-	this-> lances = lances;
+HardArmor::HardArmor(string nombre, int edad, string ciudad,int hardness, int lances): Soldier (nombre, edad, ciudad ){
+	this->hardness = hardness;
+	this->lances = lances;
 }
-
 
 int HardArmor::getHardness(){
 	return hardness;
@@ -38,5 +34,9 @@ double HardArmor::efficiencyDefense(){
 }
 
 string HardArmor::toString(){
-	
+	stringstream ss;
+	ss<< "Nombre: " << name <<endl << "Edad: "<< age << endl << "Ciudad: " << city<<endl;
+	ss<< "Dureza: "<< hardness << endl << "Cantidad de lanzas: " << lances << endl;
+	return ss.str();
+
 }

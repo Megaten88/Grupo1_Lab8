@@ -4,10 +4,7 @@ Assassin::Assassin(){
 
 }
 
-Assassin::Assassin(string nombre, int edad, string ciudad, int kills, int presence){
-	this->nombre = nombre;
-	this->edad = edad;
-	this->ciudad = ciudad;
+Assassin::Assassin(string nombre, int edad, string ciudad, int kills, int presence) : Soldier (nombre, edad, ciudad ){
 	this->kills = kills;
 	this->presence = presence;
 }
@@ -38,8 +35,8 @@ double Assassin::efficiencyDefense(){
 }
 
 string Assassin::toString(){
-	
+
 }
 Assassin::~Assassin(){
-	
+
 }
