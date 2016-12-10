@@ -28,11 +28,12 @@ int main(int argc, char const *argv[]){
 		addstr("4) Salir \n");
 		refresh();
 		scanw("%d",&option);
-
+		clear();
 		char nombre[25];
 		int edad;
 		char ciudad[25];
 		if (option == 1) {
+			clear();
 			addstr("Ingrese el nombre de su escuadron: \n");
 			refresh();
 			getstr(nombre);
@@ -42,14 +43,12 @@ int main(int argc, char const *argv[]){
 		}
 
 		if (option == 2){
-			int selectSquad=0;
-
-			
-
+			int selectSquad=0;	
 			int select=0;
 			int repeat=0;
 
 			if (escuadrones.size()> 0) {
+				clear();
 				addstr("Seleccione su escuadron: \n");
 				refresh();
 				stringstream ss;
@@ -61,12 +60,12 @@ int main(int argc, char const *argv[]){
 				addstr(menu.c_str());
 				refresh();
 				scanw("%d",&selectSquad);
-				if (selectSquad >= escuadrones.size() || selectSquad<=0)
+				if (selectSquad >= escuadrones.size() || selectSquad<0)
 				{
 					addstr("No existe.");
 					refresh();
 				}else{
-
+					clear();
 					addstr("¿Qué desea agregar a su escuadron?\n");
 					refresh();
 					addstr("1) Arquero \n");
@@ -86,6 +85,7 @@ int main(int argc, char const *argv[]){
 						scanw("%d",&repeat);
 
 						while (repeat > 0 ) {
+							clear();
 							addstr("Ingrese el nombre: \n");
 							refresh();
 							getstr(nombre);
@@ -117,6 +117,7 @@ int main(int argc, char const *argv[]){
 					refresh();
 					scanw("%d",&repeat);
 					while (repeat > 0 ) {
+						clear();
 						addstr("Ingrese el nombre: \n");
 						refresh();
 						getstr(nombre);
@@ -147,6 +148,7 @@ int main(int argc, char const *argv[]){
 					refresh();
 					scanw("%d", &repeat);
 					while (repeat > 0 ) {
+						clear();
 						addstr("Ingrese el nombre: \n");
 						refresh();
 						getstr(nombre);
@@ -180,7 +182,7 @@ int main(int argc, char const *argv[]){
 				Squad* back2;
 				int select1= 0;
 				int select2= 0;
-
+				clear();
 				addstr("Se tienen 2 bandos,ambos con un escuadron al frente y otro en la retaguardia\n");
 				refresh();
 
@@ -235,7 +237,7 @@ int main(int argc, char const *argv[]){
 
 				addstr("INICIO DE LA GUERRA!!!!\n");
 				refresh();
-
+				clear();
 				while( back1 != NULL || back2!=  NULL){
 					Squad* temp;
 					Squad* aux;
@@ -282,14 +284,14 @@ int main(int argc, char const *argv[]){
 					if (temp->getTotalAttack() > aux->getTotalDef() * 10) {
 
 						frontal2.erase(frontal2.begin() + ataque2);
-						if(frontal1.size() < 1){
+						if(frontal2.size() < 1){
 							back2 = NULL;
 						}
 
 					}else if (aux->getTotalAttack() > temp->getTotalDef() * 10 ){
 
 						frontal1.erase(frontal1.begin() + ataque1);
-						if(frontal2.size() < 1){
+						if(frontal1.size() < 1){
 							back1 = NULL;
 						}
 					}
