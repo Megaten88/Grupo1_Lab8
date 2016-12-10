@@ -192,9 +192,6 @@ int main(int argc, char const *argv[]){
 							frontal1.push_back(escuadrones.at(select1));
 						}
 
-						addstr("Bando 1: Seleccione el escuadron frontal:");
-						scanw("%d",&select1);
-
 						addstr("Bando 1: Seleccione el escuadron de retaguardia:");
 						scanw("%d",&select2);
 
@@ -221,23 +218,51 @@ int main(int argc, char const *argv[]){
 						stringstream fronttwo ;
 
 
-						addstr("ATAQUE DEL EJERCITO 1: ");
-						for (size_t i = 0; i < frontal1.size(); i++) {
-							frontone<<i <<" : " << frontal1.at(i)->toString() << "\n";
-						}
-						int ataque1;
-						string army1 = frontone.str();
-						addstr(army1.c_str());
+						addstr("INICIO DE LA GUERRA!!!!");
 
-						addstr("¡Eliga escuadron de ataque!")
+						while( back1 != NULL || back2!=  NULL){
+							Squad* temp;
+							Squad* aux;
+
+							int ataque1= 0;
+							int ataque2= 0;
+
+							addstr("Bando 1: Seleccione ejercito de ataque");
+							for (size_t i = 0; i < frontal1.size(); i++) {
+								frontone<<i <<" : " << frontal1.at(i)->toString() << "\n";
+							}
+
+							string army1 = frontone.str();
+							addstr(army1.c_str());
+							scanw("%d",&ataque1);
+							temp = frontal1.at(ataque1);
+
+							addstr("Bando 2: Eliga con quien defender");
+
+							for (size_t i = 0; i < frontal2.size(); i++) {
+								fronttwo<<i <<" : " << frontal2.at(i)->toString() << "\n";
+							}
+
+							string army2 = fronttwo.str();
+							addstr(army2.c_str());
+							scanw("%d",&ataque2);
+							aux = frontal2.at(ataque2);
+
+							if (temp->getTotalAttack() > aux->getTotalDef() * 10) {
+								frontal2.erase(frontal2.begin() + ataque2);
+							}else if (aux->getTotalAttack() > temp->getTotalDef() * 10 )
+								frontal1.erase(frontal1.begin() + ataque1);
+							}
 
 
 						}else{
 							addstr("Ocupa almenos 4 escuadrones para poder iniciar la simulación.");
+							addstr("");
 						}
 					}
 
 			}
+
 		refresh();
 		getch();
     	endwin();
