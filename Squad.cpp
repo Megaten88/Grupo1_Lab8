@@ -34,7 +34,6 @@ double Squad::getTotalAttack(){
 		{
 			totalAttack+= squad.at(i)-> efficiencyAttack();
 		}
-		cout<<"ewe"<<endl;
 		return totalAttack;
 	}else{
 		return 0;
