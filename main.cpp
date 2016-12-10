@@ -12,10 +12,11 @@ vector<Squad*> escuadrones;
 int main(int argc, char const *argv[]){
 	initscr();
 	start_color();
+	init_pair(1, COLOR_BLUE, COLOR_BLACK);
+	attron(COLOR_PAIR(1));
 	int option = 0 ;
 	char temp[1];
 	while (option != 4) {
-		clear();
 		addstr("SIMULACIÓN : Guerras Punicas\n");
 		refresh();
 		addstr("1) Agregar escuadrón\n");
@@ -26,14 +27,12 @@ int main(int argc, char const *argv[]){
 		refresh();
 		addstr("4) Salir \n");
 		refresh();
-		refresh();
 		scanw("%d",&option);
 
 		char nombre[25];
 		int edad;
 		char ciudad[25];
 		if (option == 1) {
-			clear();
 			addstr("Ingrese el nombre de su escuadron: \n");
 			refresh();
 			getstr(nombre);
@@ -62,52 +61,55 @@ int main(int argc, char const *argv[]){
 				addstr(menu.c_str());
 				refresh();
 				scanw("%d",&selectSquad);
-				clear();
-				addstr("¿Qué desea agregar a su escuadron?\n");
-				refresh();
-				addstr("1) Arquero \n");
-				refresh();
-				addstr("2) Coraza Dura\n");
-				refresh();
-				addstr("3) Asesino Oculto \n");
-				refresh();
-
-				scanw("%d",&select);
-
-				if (select == 1 ) {
-					clear();
-					int flechas=0;
-					int presicion=0;
-					addstr("¿Cuantos arqueros desea agregar?\n");
+				if (selectSquad >= escuadrones.size() || selectSquad<=0)
+				{
+					addstr("No existe.");
 					refresh();
-					scanw("%d",&repeat);
+				}else{
 
-					while (repeat > 0 ) {
-						clear();
-						addstr("Ingrese el nombre: \n");
-						refresh();
-						getstr(nombre);
-						addstr("Ingrese la edad:\n");
-						refresh();
-						scanw("%d",&edad);
-						addstr("Ingrese el nombre de la ciudad de origen\n");
-						refresh();
-						getstr(ciudad);
-						addstr("Cantidad de flechas: \n");
-						refresh();
-						scanw("%d",&flechas);
-						addstr("Rango de presicion; \n");
-						refresh();
-						scanw("%d",&presicion);
-						escuadrones.at(selectSquad)->addSoldier(new Archer(nombre,edad,ciudad,flechas,presicion));
+					addstr("¿Qué desea agregar a su escuadron?\n");
+					refresh();
+					addstr("1) Arquero \n");
+					refresh();
+					addstr("2) Coraza Dura\n");
+					refresh();
+					addstr("3) Asesino Oculto \n");
+					refresh();
 
-						repeat--;
+					scanw("%d",&select);
+
+					if (select == 1 ) {
+						int flechas=0;
+						int presicion=0;
+						addstr("¿Cuantos arqueros desea agregar?\n");
+						refresh();
+						scanw("%d",&repeat);
+
+						while (repeat > 0 ) {
+							addstr("Ingrese el nombre: \n");
+							refresh();
+							getstr(nombre);
+							addstr("Ingrese la edad:\n");
+							refresh();
+							scanw("%d",&edad);
+							addstr("Ingrese el nombre de la ciudad de origen\n");
+							refresh();
+							getstr(ciudad);
+							addstr("Cantidad de flechas: \n");
+							refresh();
+							scanw("%d",&flechas);
+							addstr("Rango de presicion; \n");
+							refresh();
+							scanw("%d",&presicion);
+							escuadrones.at(selectSquad)->addSoldier(new Archer(nombre,edad,ciudad,flechas,presicion));
+
+							repeat--;
+						}
 					}
 
 				}
 
 				if (select == 2 ) {
-					clear();
 					int dureza=0;
 					int lanzas=0;
 
@@ -115,7 +117,6 @@ int main(int argc, char const *argv[]){
 					refresh();
 					scanw("%d",&repeat);
 					while (repeat > 0 ) {
-						clear();
 						addstr("Ingrese el nombre: \n");
 						refresh();
 						getstr(nombre);
@@ -140,7 +141,6 @@ int main(int argc, char const *argv[]){
 				}
 
 				if (select == 3 ) {
-					clear();
 					int victimas=0;
 					int presencia=0;
 					addstr("¿Cuantos Asesinos Ocultos desea agregar?\n");
@@ -172,9 +172,7 @@ int main(int argc, char const *argv[]){
 		}
 
 		if (option == 3) {
-			clear();
 			if (escuadrones.size() > 3) {
-
 				int repeat = 0;
 				vector<Squad*> frontal1;
 				vector<Squad*> frontal2;
@@ -197,7 +195,6 @@ int main(int argc, char const *argv[]){
 				addstr("Bando 1: ¿Cuantos escuadrones desea agregar al frente?\n");
 				refresh();
 				scanw("%d",&repeat);
-				clear();
 				for (int i = 0; i < repeat; i++) {
 					addstr(menu.c_str());
 					addstr("Bando 1: Seleccione el escuadron frontal: ");
@@ -209,7 +206,7 @@ int main(int argc, char const *argv[]){
 				addstr("Bando 1: Seleccione el escuadron de retaguardia: ");
 				refresh();
 				scanw("%d",&select2);
-				clear();
+				
 				frontal1.push_back(escuadrones.at(select1));
 				back1 = escuadrones.at(select2);
 						///////////////////////////////////////////////////////
@@ -219,7 +216,6 @@ int main(int argc, char const *argv[]){
 				addstr("Bando 2:¿Cuantos escuadrones desea agregar al frente?\n");
 				refresh();
 				scanw("%d",&repeat);
-				clear();
 				for (int i = 0; i < repeat; i++) {
 					addstr(menu.c_str());
 					refresh();
@@ -237,12 +233,10 @@ int main(int argc, char const *argv[]){
 				stringstream frontone ;
 				stringstream fronttwo ;
 
-				clear();
 				addstr("INICIO DE LA GUERRA!!!!\n");
 				refresh();
 
 				while( back1 != NULL || back2!=  NULL){
-					clear();
 					Squad* temp;
 					Squad* aux;
 
